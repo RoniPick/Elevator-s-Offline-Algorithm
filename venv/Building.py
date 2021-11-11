@@ -1,4 +1,6 @@
 import json
+import math
+
 from Elevator import Elevator
 
 
@@ -14,3 +16,16 @@ class Building:
                 e = Elevator(data)
                 self.elevators.append(e)
             self.numOfElevators = len(self.elevators)
+
+    def minFloor(self):
+        return self.minFloor
+
+    def maxFloor(self):
+        return self.maxFloor
+
+    def numOfElevators(self):
+        return self.numOfElevators
+
+    def elevators(self):
+        return self.elevators
+
