@@ -20,4 +20,10 @@ class Calls:
                 c = Calls(row)
                 calls.append(c)
 
+    def src(self):
+        return self.src
+
+    def dest(self):
+        return self.dest
+
 
