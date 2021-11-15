@@ -2,15 +2,16 @@ import csv
 
 
 class Calls:
-    def __init__(self, row):
+    def __init__(self, row): # load the data to create a new call object
         self.name = row[0]
         self.time = row[1]
         self.src = row[2]
         self.dest = row[3]
-        self.status = 0
+        self.status = 0 # isn't relevant
         self.allocate = row[5]
+        self.totalTime = 0 # we would like to know the time it took to do the call (when allocate to the elevator)
 
-    def __init__(self, filename):
+    def __init__(self, filename): # load the file to the calls class
         calls = []
         with open(filename) as callsFile:
             csv_reader = csv.reader(callsFile)
@@ -18,3 +19,5 @@ class Calls:
             for row in csv_reader:
                 c = Calls(row)
                 calls.append(c)
+
+

@@ -1,12 +1,10 @@
 import json
-import math
-
 from Elevator import Elevator
 
 
 class Building:
 
-    def load_json(self, file_name):
+    def load_json(self, file_name): # load the file to the building class
         with open(file_name, "r") as buildingFile:
             self.elevators = []
             dict = json.load(buildingFile)
@@ -16,6 +14,12 @@ class Building:
                 e = Elevator(data)
                 self.elevators.append(e)
             self.numOfElevators = len(self.elevators)
+
+    def __init__(self, data):
+        self.minFloor = dict["_minFloor"]
+        self.maxFloor = dict["_maxFloor"]
+        self.elevators = []
+        self.numOfElevators = len(self.elevators)
 
     def minFloor(self):
         return self.minFloor
