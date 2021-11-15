@@ -12,9 +12,11 @@ class Offline_Algo:
     ## --> after we finished with the creation we will send the list of calls / a single call
     ##  and the elevator's list to the allocate_call function
     ## at the end of the function we will write a new scv file and we will return it.
-    def main_function(Building_File, Calls_File, output_File):
-    building =
-    calls =
+    def main_function(Building.json , Calls.csv , output.csv):
+    building = Building.load_json(Building.json)
+    calls = Calls.load_csv(Calls.csv)
+
+
 
     def load_json(self):  # load the file to the building class
         with open(self, "r") as buildingFile:
@@ -47,6 +49,7 @@ class Offline_Algo:
         else:
              return call.best_time(call, elevators)
 
+
     ## this call will tell us which elevator is the best for the specific call
     ## we will get a call from the call's list and the list of the elevators that in the building.
     ## then, we will send a specific elevator and the call to the calculate_time function
@@ -70,8 +73,11 @@ class Offline_Algo:
         elevTime = elevator.calculateTime() # the elevator generic time
         calltime = abs(call.src() - call.dest())/elevator.speed() # the time ro go from src to dest at this elevator
         totalTime = elevTime + calltime
-        if not Elevator.callList(elevator).isEmpty:
-            while 
+        while not Elevator.callList(elevator).isEmpty:
+            index = 0
+            if(Elevator.callList())
+
+
         return totalTime
 
 

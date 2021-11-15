@@ -11,13 +11,13 @@ class Calls:
         self.allocate = row[5]
         self.totalTime = 0 # we would like to know the time it took to do the call (when allocate to the elevator)
 
-    def __init__(self, filename): # load the file to the calls class
+    def load_csv(self, filename): # load the file to the calls class
         calls = []
         with open(filename) as callsFile:
             csv_reader = csv.reader(callsFile)
             line = next(csv_reader)
             for row in csv_reader:
-                c = Calls(row)
+                c = Calls.__init__(row)
                 calls.append(c)
 
     def time(self):
@@ -28,5 +28,9 @@ class Calls:
 
     def dest(self):
         return self.dest()
+
+    def allocate(self):
+        return self.allocate()
+
 
 
