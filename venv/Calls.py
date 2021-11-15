@@ -20,4 +20,13 @@ class Calls:
                 c = Calls(row)
                 calls.append(c)
 
+    def time(self):
+        return self.time
+
+    def src(self):
+        return self.src
+
+    def dest(self):
+        return self.dest
+
 
