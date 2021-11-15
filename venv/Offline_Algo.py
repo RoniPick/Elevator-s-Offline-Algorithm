@@ -1,9 +1,9 @@
 import json
 import csv
-import Building
-import Elevator
-import Calls
-
+from Building import Building
+from Elevator import Elevator
+from Calls import Calls
+# calculate_time.py
 
 class Offline_Algo:
     ## the main function of the program. we receive the files and we will need to return a new file
@@ -41,18 +41,38 @@ class Offline_Algo:
     ## if we have more than one elevator - for every call we will run all over the elevators that in the building
     ## we will use the best_time and calculate_time function
     ## after we will allocate the call to the elevator we will change the location number to the relevant elevator.
-    def allocate_call(calls, []):
+    def allocate_call(call, elevators):
+        if len(elevators)==1:
+            return id(elevators[0])
+        else:
+             return call.best_time(call, elevators)
 
-
-    # this call will tell us which elevator is the best for the specific call
+    ## this call will tell us which elevator is the best for the specific call
     ## we will get a call from the call's list and the list of the elevators that in the building.
     ## then, we will send a specific elevator and the call to the calculate_time function
-    def best_time():
+    def best_time(call,elevators):
+        elevatorIndex = -1
+        minTime = float('inf')
+        for index in len(elevators):
+            elevnum=elevators[index]
+            temp = call.calculate_time(call, elevnum)
+            if temp < minTime:
+                minTime = temp
+                elevatorIndex = index
+        return elevatorIndex
 
-    # this function will calculate the total time for a call in specific elevator
+
+
+    ## this function will calculate the total time for a call in specific elevator
     ## that means: for every elevator we will check the time for the call to be completed and then we will save it in the
     ## totalTime parameter we created inside the call.
-    def calculate_time(calls,elevator):
+    def calculate_time(call,elevator):
+        elevTime = elevator.calculateTime() # the elevator generic time
+        calltime = abs(call.src() - call.dest())/elevator.speed() # the time ro go from src to dest at this elevator
+        totalTime = elevTime + calltime
+        if not Elevator.callList(elevator).isEmpty:
+            while 
+        return totalTime
 
 
     if __name__ == '__main__':

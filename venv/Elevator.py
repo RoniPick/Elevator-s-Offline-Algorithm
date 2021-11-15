@@ -26,10 +26,10 @@ class Elevator:
         self.callList.pop(0)
 
     def speed(self):
-        return self.speed
+        return self.speed()
 
     def id(self):
-        return self.id
+        return self.id()
 
     def callList(self):
-        return self.callList
+        return self.callList()

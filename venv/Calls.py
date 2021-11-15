@@ -21,12 +21,12 @@ class Calls:
                 calls.append(c)
 
     def time(self):
-        return self.time
+        return self.time()
 
     def src(self):
-        return self.src
+        return self.src()
 
     def dest(self):
-        return self.dest
+        return self.dest()
 
 

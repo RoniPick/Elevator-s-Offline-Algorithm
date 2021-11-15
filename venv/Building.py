@@ -22,14 +22,14 @@ class Building:
         self.numOfElevators = len(self.elevators)
 
     def minFloor(self):
-        return self.minFloor
+        return self.minFloor()
 
     def maxFloor(self):
-        return self.maxFloor
+        return self.maxFloor()
 
     def numOfElevators(self):
-        return self.numOfElevators
+        return self.numOfElevators()
 
     def elevators(self):
-        return self.elevators
+        return self.elevators()
 
