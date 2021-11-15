@@ -25,11 +25,11 @@ class Elevator:
         def remove(self):  # removing the first call from the list
             self.callList.pop(0)
 
-        def speed(self):
-            return self.speed()
+        def get_speed(self):
+            return self.speed
 
-        def id(self):
-            return self.id()
+        def get_id(self):
+            return self.id
 
-        def callList(self):
-            return self.callList()
+        def get_callList(self):
+            return self.callList

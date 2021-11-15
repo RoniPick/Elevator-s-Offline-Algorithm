@@ -23,14 +23,15 @@ class Calls:
     def time(self):
         return self.time()
 
-    def src(self):
-        return self.src()
 
-    def dest(self):
-        return self.dest()
+    def get_allocate(self):
+        return self.allocate
 
-    def allocate(self):
-        return self.allocate()
+    def get_src(self):
+        return self.src
+
+    def get_dest(self):
+        return self.dest
 
 
 

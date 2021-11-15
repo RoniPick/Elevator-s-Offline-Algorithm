@@ -3,7 +3,6 @@ import csv
 from Building import Building
 from Elevator import Elevator
 from Calls import Calls
-# calculate_time.py
 
 class Offline_Algo:
     ## the main function of the program. we receive the files and we will need to return a new file
@@ -12,9 +11,10 @@ class Offline_Algo:
     ## --> after we finished with the creation we will send the list of calls / a single call
     ##  and the elevator's list to the allocate_call function
     ## at the end of the function we will write a new scv file and we will return it.
-    def main_function(Building.json , Calls.csv , output.csv):
-    building = Building.load_json(Building.json)
-    calls = Calls.load_csv(Calls.csv)
+    def main_function(Building , Calls, output):
+        building = Building.load_json(Building.json)
+        calls = Calls.load_csv(Calls.csv)
+        allocate_call(calls, building.get_elevators())
 
 
 

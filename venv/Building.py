@@ -4,9 +4,10 @@ from Elevator import Elevator
 
 class Building:
 
+
     def __init__(self, data):
-        self.minFloor = dict["_minFloor"]
-        self.maxFloor = dict["_maxFloor"]
+        self.minFloor = data["_minFloor"]
+        self.maxFloor = data["_maxFloor"]
         self.elevators = []
         self.numOfElevators = len(self.elevators)
 
@@ -23,15 +24,15 @@ class Building:
 
 
 
-    def minFloor(self):
-        return self.minFloor()
+    def get_minFloor(self):
+        return self.minFloor
 
-    def maxFloor(self):
-        return self.maxFloor()
+    def get_maxFloor(self):
+        return self.maxFloor
 
-    def numOfElevators(self):
-        return self.numOfElevators()
+    def get_numOfElevators(self):
+        return self.numOfElevators
 
-    def elevators(self):
-        return self.elevators()
+    def get_elevators(self):
+        return self.elevators
 
