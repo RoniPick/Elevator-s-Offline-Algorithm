@@ -17,37 +17,17 @@ class Offline_Algo:
         allocate_call(calls, building.get_elevators())
 
 
-
-    def load_json(self):  # load the file to the building class
-        with open(self, "r") as buildingFile:
-            dict = json.load(buildingFile)
-            b = Building(buildingFile)
-            for data in dict["_elevators"]:
-                e = Elevator(data)
-                b.elevators.append(e)
-        return b
-
-    def load_csv(self, filename):  # load the file to the calls class
-        calls = []
-        with open(filename) as callsFile:
-            csv_reader = csv.reader(callsFile)
-            line = next(csv_reader)
-            for row in csv_reader:
-                c = Calls(row)
-                calls.append(c)
-        return calls
-
     ## this function will get a list of calls /a single call and allocate the call at an elevator
     ## we will run all over the new list we created to the calls - as long as the list isn't empty.
     ## if we have only one elevator - send the call to this elevator for all the calls.
     ## if we have more than one elevator - for every call we will run all over the elevators that in the building
     ## we will use the best_time and calculate_time function
     ## after we will allocate the call to the elevator we will change the location number to the relevant elevator.
-    def allocate_call(call, elevators):
+    def allocate_call(calls, elevators):
         if len(elevators)==1:
             return id(elevators[0])
         else:
-             return call.best_time(call, elevators)
+             return best_time(call, elevators)
 
 
     ## this call will tell us which elevator is the best for the specific call

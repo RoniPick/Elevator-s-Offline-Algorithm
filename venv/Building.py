@@ -4,23 +4,20 @@ from Elevator import Elevator
 
 class Building:
 
-
     def __init__(self, data):
         self.minFloor = data["_minFloor"]
         self.maxFloor = data["_maxFloor"]
         self.elevators = []
         self.numOfElevators = len(self.elevators)
 
-    def load_json(self, file_name): # load the file to the building class
-        with open(file_name, "r") as buildingFile:
-            self.elevators = []
+    def load_json(self, filename):  # load the file to the building class
+        with open(filename, "r") as buildingFile:
             dict = json.load(buildingFile)
-            self.minFloor = dict["_minFloor"]
-            self.maxFloor = dict["_maxFloor"]
+            b = Building(buildingFile)
             for data in dict["_elevators"]:
                 e = Elevator(data)
-                self.elevators.append(e)
-            self.numOfElevators = len(self.elevators)
+                b.elevators.append(e)
+        return b
 
 
 
