@@ -29,6 +29,6 @@ plus, we add a totalTime parameter that save the time the elevator execute the c
 we will get a call from the call's list and the list of the elevators that in the building. then, we will send a specific elevator and the call to the "calculate" function.
 3. calculate -this function will calculate the total time for a call in specific elevator.
 that means: for every elevator we will check the time for the call to be completed and then we will save it in the totalTime parameter we created inside the call.
-4. check - this function will check if there are people that in the elevator 
+4. check - this function will check if there are people that in the elevator that if we add the new call to the elevator, their total execution rime for their request will be longer than before. we will calculate the average of the new time we get for each of them. 
 
 
