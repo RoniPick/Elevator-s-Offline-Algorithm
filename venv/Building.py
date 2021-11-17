@@ -16,10 +16,10 @@ class Building:
             self.minFloor = dict["_minFloor"]
             self.maxFloor = dict["_maxFloor"]
             self.elevators = []
+            e = []
             for data in dict["_elevators"]:
-               e = Elevator(data)
-               self.elevators.append(e)
-
+                e.append(Elevator(data))
+            self.elevators = e
 
     def get_minFloor(self):
         return self.minFloor
@@ -32,4 +32,3 @@ class Building:
 
     def get_elevators(self):
         return self.elevators
-

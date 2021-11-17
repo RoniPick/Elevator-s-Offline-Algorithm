@@ -13,9 +13,9 @@ class Calls:
 
     def __init__(self, row): # load the data to create a new call object
         self.name = row[0]
-        self.time = row[1]
-        self.src = row[2]
-        self.dest = row[3]
+        self.time = float(row[1])
+        self.src = int(row[2])
+        self.dest = int(row[3])
         self.status = 0 # isn't relevant
         self.allocate = row[5]
         self.totalTime = 0 # we would like to know the time it took to do the call (when allocate to the elevator)
@@ -23,7 +23,7 @@ class Calls:
 
 
     def create_csv(self, filename, calls):
-        with open('filename', 'wb', newline='') as output:
+        with open('filename', 'wb', newline=" ") as output:
             filewriter=csv.writer(output)
             for call in calls:
                 c=call.__dict__
@@ -47,6 +47,3 @@ class Calls:
 
     def get_dest(self):
         return self.dest
-
-
-
