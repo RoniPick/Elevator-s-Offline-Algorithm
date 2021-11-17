@@ -11,9 +11,9 @@ class Elevator:
         self.startTime = data["_startTime"]
         self.stopTime = data["_stopTime"]
         self.callList = []  # a list of the calls that were allocated at the elevator
-        self.direction = 0  # in order to know which way the elevator is going
+        self.timer = 0  # counting the elevator time while adding calls
+        self.flag = 0
 
-    def elevator_location(Elevator, timeOfCall):  # the function will give us the location of the elevator at a certain time
 
     def calculateTime(self):  # calculating the elevator total time
         return self.closeTime + self.openTime + self.stopTime + self.startTime
@@ -24,6 +24,12 @@ class Elevator:
     def remove(self):  # removing the first call from the list
         self.callList.pop(0)
 
+    def current_state(self, call): #return the elevator current state - up or down
+        if len(callList)==0:
+            return 1 #return ok to any call
+        else:
+            return call.get_direction == 1 and self.callList[len(callList)-1].dest<=call.src or call.get_direction == -1 and self.callList[len(callList)-1].dest>=call.src
+
     def get_speed(self):
         return self.speed
 
@@ -32,3 +38,9 @@ class Elevator:
 
     def get_callList(self):
         return self.callList
+
+    def get_timer(self):
+        return self.timer
+
+    def get_flag(self):
+        return self.flag

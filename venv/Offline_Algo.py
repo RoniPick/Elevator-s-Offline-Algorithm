@@ -11,38 +11,41 @@ class Offline_Algo:
     ## --> after we finished with the creation we will send the list of calls / a single call
     ##  and the elevator's list to the allocate_call function
     ## at the end of the function we will write a new scv file and we will return it.
-    def main_function(Building , Calls, output):
-        building = Building.load_json(Building.json)
-        calls = Calls.load_csv(Calls.csv)
-        allocate_call(calls, building.get_elevators())
 
+    #@staticmethod
+    def load_csv(filename):  # load the file to the calls class
+        calls = []
+        with open(filename, 'r') as callsFile:
+            csv_reader = csv.reader(callsFile)
+            line = next(csv_reader)
+            for row in csv_reader:
+                c = Calls(row)
+                calls.append(c)
 
-    ## this function will get a list of calls /a single call and allocate the call at an elevator
-    ## we will run all over the new list we created to the calls - as long as the list isn't empty.
-    ## if we have only one elevator - send the call to this elevator for all the calls.
-    ## if we have more than one elevator - for every call we will run all over the elevators that in the building
-    ## we will use the best_time and calculate_time function
-    ## after we will allocate the call to the elevator we will change the location number to the relevant elevator.
+        return calls
+
+    def main_function(building , Calls_csv, output):
+        b1=Building()
+        b1.load_json(building)
+        calls = load_csv(Calls_csv)
+        allocate_call(calls, b1.get_elevators())
+
     def allocate_call(calls, elevators):
-        if len(elevators)==1:
-            return id(elevators[0])
+        if len(elevators) == 1: #if we have only 1 elevator - allocate the call to the spesific elevator
+            return elevators[0].id
         else:
-             return best_time(call, elevators)
+            for call in calls:
+                cur = -1
+                time = float('inf')
+                for elev in elevators:
+                    if elev.get_timer + calculate_time(call, elev) < time and elev.current_state(elev, call.get_direction):
+                        time=elev.get_timer + calculate_time(call, elev)
+                        cur=elev.get_id
+                        chosen_elev=elev
+                cur.get_timer+=calculate_time(call, cur)
+                chosen_elev.add(cur.callList, call)
+            return cur
 
-
-    ## this call will tell us which elevator is the best for the specific call
-    ## we will get a call from the call's list and the list of the elevators that in the building.
-    ## then, we will send a specific elevator and the call to the calculate_time function
-    def best_time(call,elevators):
-        elevatorIndex = -1
-        minTime = float('inf')
-        for index in len(elevators):
-            elevnum=elevators[index]
-            temp = call.calculate_time(call, elevnum)
-            if temp < minTime:
-                minTime = temp
-                elevatorIndex = index
-        return elevatorIndex
 
 
 
@@ -53,16 +56,11 @@ class Offline_Algo:
         elevTime = elevator.calculateTime() # the elevator generic time
         calltime = abs(call.src() - call.dest())/elevator.speed() # the time ro go from src to dest at this elevator
         totalTime = elevTime + calltime
-        while not Elevator.callList(elevator).isEmpty:
-            index = 0
-            if(Elevator.callList())
-
-
         return totalTime
 
 
     if __name__ == '__main__':
-        main_function()
+        main_function("C://Users//User//PycharmProjects//Ex1//B1.json", "C://Users//User//PycharmProjects//Ex1//Calls_a.csv", "output.csv")
 
 
 
