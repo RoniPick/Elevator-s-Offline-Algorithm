@@ -31,15 +31,19 @@ we will get a call from the call's list and the list of the elevators that in th
 that means: for every elevator we will check the time for the call to be completed and then we will save it in the totalTime parameter we created inside the call.
 4. check - this function will check if there are people that in the elevator that if we add the new call to the elevator, their total execution rime for their request will be longer than before. we will calculate the average of the new time we get for each of them. 
 
-## _UML diagram_: 
-!(https://user-images.githubusercontent.com/93771702/142408509-c9715b35-1dc9-4b98-978c-ebacf7b7c231.png)
+### _How to run_:
+in order to run the program, you will need to install a few plugings: 
+- in the offline_
 
+## _UML diagram_: 
+![Ex1](https://user-images.githubusercontent.com/93771702/142445572-4015aaeb-3348-4907-95de-53e74edc5612.png)
 
 ## _Run results_:
 
-| Call case/Bilding  | B1     | B2 | B3 | B4| B5|
-|-------------------------------------------|
-| Case a  |    a      |     a  |  a |   a |     a    |
-| Case b  |     a     | a   | a  |  a  |    a    |
-| Case c  |      a    |   a | a   | a   |  a     |
-| Case d  |  a |  a| a| a| a|
+| Call case/Bilding | B1     | B2     | B3     | B4     | B5     |
+|-------------------|--------|--------|--------|--------|--------|
+|      Case a       | 112.92 |  51.71 |  31.19 |  18.41 |  12.15 |
+|      Case b       |        |        | 545.95 | 250.05 | 63.56  |
+|      Case c       |        |        | 560.22 | 247.30 | 61.72  |
+|      Case d       |        |        | 600.25 | 244.81 | 65.56  |
+
