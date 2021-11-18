@@ -1,4 +1,5 @@
 # Task 1 - Elevator's Optimization Offline Algorithm 
+### _by: Roni Pick - 206794075 & Almog David - 207749441_
 ## _literature Review_:
   1. https://peters-research.com/index.php/papers/understanding-the-benefits-and-limitations-of-destination-control/
   2. https://towardsdatascience.com/elevator-optimization-in-python-73cab894ad30
