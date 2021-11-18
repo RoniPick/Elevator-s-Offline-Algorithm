@@ -10,7 +10,6 @@ def load_csv(filename):  # load the file to the calls class
     calls = []
     with open(filename) as callsFile:
         csv_reader = csv.reader(callsFile)
-        line = next(csv_reader)
         for row in csv_reader:
             c = Calls(row)
             calls.append(c)
@@ -46,7 +45,7 @@ Then, we will send a specific elevator and the call to the "calculate" function.
 
 def best(elevator_list, call):
     best_time = float('inf')
-    index = -1
+    index = 0
     for i in elevator_list:
         temp = calculate(i, call)
         if best_time > temp:
@@ -94,6 +93,9 @@ def check(call, elevator, callList, avg):
         return sum
     else:
         for index in callList:
+            if call.src == index.src and call.dest == index.dest:
+                return sum
+        for index in callList:
             delayed = False
             if call.status == index.status:
                 if call.src in range(index.src, index.dest):
@@ -107,12 +109,11 @@ def check(call, elevator, callList, avg):
             sum = sum + index.totalTime
             index + 1
 
-        sum = (sum + counter * elevator.calculate_func) / people
+        sum = (sum + counter * elevator.calculateTime()) / people
         return sum
 
 
 class Offline_Algo:
-
     """ the main function of the program. we receive the files and we need to return a new file
     after we finished with the creation we will send the list of calls and the elevator's list to the allocate function
     at the end of the function we will write a new csv file and we will return it. """
@@ -125,12 +126,11 @@ class Offline_Algo:
         create_csv(calls, output)
 
     if __name__ == "__main__":
-        ##main_function("files\\B1.json", "files\\Calls_a.csv", "output.csv")
+        # main_function("files\\B1.json", "files\\Calls_a.csv", "output.csv")
+
         list = sys.argv
         buildingLocation = list[1]
         callsLocation = list[2]
         outputLocation = list[3]
         main_function(buildingLocation, callsLocation, outputLocation)
-
-
 

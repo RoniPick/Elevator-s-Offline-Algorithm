@@ -1,10 +1,10 @@
 class Calls:
-    def load(self):  # load the data to create a new call object
+    def load(self):  # empty constructor
         self.name = 0
         self.time = 0
         self.src = 0
         self.dest = 0
-        self.st = 0  # isn't relevant
+        self.status = 0  # tell us the direction/flag of the call: up, down
         self.allocate = 0
         self.totalTime = 0  # we would like to know the time it took to do the call (when allocate to the elevator)
 

@@ -1,0 +1,77 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+Calls -left-> Offline_Algo
+Building -right-> Offline_Algo
+Calls -left-> Elevator
+Elevator -up-> Building
+main -left-> Offline_Algo
+json -down-> Building
+csv -down-> Offline_Algo
+sys -down-> main
+
+abstract sys{
+}
+
+abstract csv{
+}
+abstract json{
+}
+
+
+class main{
+
+}
+
+
+class Building {
+int minFloor
+int maxFloor
+elevators [] Elevator
+int numOfElevators
+load_json()
+}
+
+class Calls {
+string name
+float time
+int src
+int dest
+int status
+int allocate
+float totalTime
+
++ call_length()
+}
+
+class Elevator {
+int id
+float speed
+int minFloor
+int maxFloor
+float openTime
+float closeTime
+float startTime
+float stopTime
+float timer = 0
+int lastFloor = 0
+callList []
+
++ add(call)
++ remove()
++ calculateTime()
+}
+
+class Offline_Algo {
++ load_csv(string)
++ create_csv([]Calls, string)
++ allocate([]Calls, []Elevator)
++ best([]Elevator, call)
++ calculate(elevator, call)
++ check(call, elevator, callList, avg)
++ main_function(building, Calls_csv, output):
+}
+
+
+
+@enduml
