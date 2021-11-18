@@ -37,8 +37,9 @@ that means: for every elevator we will check the time for the call to be complet
 - in the Offline_Algo class  you need to import csv (in order to read and create the csv files) and sys (in order to allow the user to run the function's from the terminal window).
 - in the Building class you need to import json (in order to read the json file).
 
-- In order to run the simulator, first enter into the main.c.
-    py .\main.py "Ex1_Buildings\B1.json" "Ex1_Calls\Calls_a.csv" "output.csv"
+- In order to run the simulator, first enter into the Ex1.py.
+
+    py .\Ex1.py "Ex1_Buildings\B1.json" "Ex1_Calls\Calls_a.csv" "output.csv"
     
  You can choose every building from the following bulding file's (B1.json, B2, B3, B4 or B5).
  
@@ -51,7 +52,7 @@ that means: for every elevator we will check the time for the call to be complet
  The output log file is located in output.csv.
  
 #### in order to run the test: 
-- open main.c. and test.py 
+- open Ex1.py. and test.py 
 - import pandas
 - run the class "MyTestCase"
 
