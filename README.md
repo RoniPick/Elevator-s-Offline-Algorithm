@@ -32,8 +32,27 @@ that means: for every elevator we will check the time for the call to be complet
 4. check - this function will check if there are people that in the elevator that if we add the new call to the elevator, their total execution rime for their request will be longer than before. we will calculate the average of the new time we get for each of them. 
 
 ### _How to run_:
-in order to run the program, you will need to install a few plugings: 
-- in the offline_
+#### In order to run the program, you will need to install a few plugings:
+- in the Offline_Algo class  you need to import csv (in order to read and create the csv files) and sys (in order to allow the user to run the function's from the terminal window).
+- in the Building class you need to import json (in order to read the json file).
+
+- In order to run the simulator, first enter into the main.c.
+    py .\main.py "Ex1_Buildings\B1.json" "Ex1_Calls\Calls_a.csv" "output.csv"
+    
+ You can choose every building from the following bulding file's (B1.json, B2, B3, B4 or B5).
+ 
+ You can select every call file from the following call file's (Call_a.csv, b, c or d).
+ 
+ Then, run the following command for the .jar file:
+
+    java -jar Ex1_checker_V1.2_obf.jar <First_ID,Second_ID> Ex1_Buildings/B2.json output.csv Calls_a_B2_log.csv
+    
+ The output log file is located in output.csv.
+ 
+#### in order to run the test: 
+- open main.c. and test.py 
+- import pandas
+- run the class "MyTestCase"
 
 ## _UML diagram_: 
 ![Ex1](https://user-images.githubusercontent.com/93771702/142445572-4015aaeb-3348-4907-95de-53e74edc5612.png)
